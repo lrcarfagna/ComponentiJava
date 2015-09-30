@@ -26,15 +26,24 @@ public class ComponentiJava {
         JCheckBox checkBox1 = new JCheckBox("Java");
         JCheckBox checkBox2 = new JCheckBox("PHP");
         JCheckBox checkBox3 = new JCheckBox("SQL");
-        JRadioButton radioButton = new JRadioButton("M");
-        JRadioButton radioButton1 = new JRadioButton("F");
+        ButtonGroup radioButtons = new ButtonGroup();
+        JRadioButton radioButton = new JRadioButton("Microsoft");
+        JRadioButton radioButton1 = new JRadioButton("Apple");
         
                 
         ImageIcon immagineSwing = new ImageIcon("C:\\Users\\Lorenzo\\Desktop\\assisi.jpg");
+        
         ImageIcon immagineSwing1 = new ImageIcon("C:\\Users\\Lorenzo\\Desktop\\assisi1.jpg");
+        
         JButton contenitoreImmagine = new JButton(immagineSwing);
         
-        contenitoreImmagine.setIcon(immagineSwing1);
+        /* Non funziona il ridimensionamento dell'immagine
+        Image immagineRidimensionata = immagineSwing1.getImage();
+        immagineRidimensionata.getScaledInstance(immagineSwing.getIconWidth(),immagineSwing.getIconHeight(),java.awt.Image.SCALE_SMOOTH);
+        immagineSwing1.setImage(immagineRidimensionata);
+        */
+        
+        contenitoreImmagine.setRolloverIcon(immagineSwing1);
         
         comboBox.addItem("Linux");
         comboBox.addItem("Windows");
@@ -42,7 +51,11 @@ public class ComponentiJava {
         comboBox.addItem("Android");
         
         
+        //Aggiungo i radiobuttons al radioButtonGroup
+        radioButtons.add(radioButton);
+        radioButtons.add(radioButton1);
         
+        //Aggiungo i componenti al pannello
         pannello.add(etichetta);
         pannello.add(bottone);
         pannello.add(comboBox);
@@ -52,11 +65,11 @@ public class ComponentiJava {
         pannello.add(contenitoreImmagine);
         pannello.add(radioButton);
         pannello.add(radioButton1);
-        
         pannello.setBackground(Color.green);
-        frame.add(pannello);
-        frame.setSize(500, 500);
         
+        //Aggiunto il pannello al frame e setto alcune proprietà
+        frame.add(pannello);
+        frame.setSize(800, 500);
         frame.setVisible(true);
         
         
